@@ -1,0 +1,145 @@
+//--------
+// Config
+//
+// Variable definitions
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// GRID
+//----------------------------------------------------------------------------------------------------------------------
+
+//--------
+// Grid dimensions (REQUIRED)
+$fg-col: 40px;                                    // Column width
+$fg-gutter: 20px;                                 // Gutter width
+$fg-fluid-gutter: 1.6;                            // Fluid gutter percentage
+
+//--------
+// Grid dimensions (AUXILIARY)
+$fg-col-total: 24;                                // Column total
+$fg-grid-width: $fg-col + $fg-gutter;             // Grid width (60px)
+$fg-grid-total: $fg-grid-width * $fg-col-total;   // Grid total width
+
+//--------
+// Grid columns
+$fg-col-1: $fg-grid-width * 1;
+$fg-col-2: $fg-grid-width * 2;
+$fg-col-3: $fg-grid-width * 3;
+$fg-col-4: $fg-grid-width * 4;
+$fg-col-5: $fg-grid-width * 5;
+$fg-col-6: $fg-grid-width * 6;
+$fg-col-7: $fg-grid-width * 7;
+$fg-col-8: $fg-grid-width * 8;
+$fg-col-9: $fg-grid-width * 9;
+$fg-col-10: $fg-grid-width * 10;
+$fg-col-11: $fg-grid-width * 11;
+$fg-col-12: $fg-grid-width * 12;
+$fg-col-13: $fg-grid-width * 13;
+$fg-col-14: $fg-grid-width * 14;
+$fg-col-15: $fg-grid-width * 15;
+$fg-col-16: $fg-grid-width * 16;
+$fg-col-17: $fg-grid-width * 17;
+$fg-col-18: $fg-grid-width * 18;
+$fg-col-19: $fg-grid-width * 19;
+$fg-col-20: $fg-grid-width * 20;
+$fg-col-21: $fg-grid-width * 21;
+$fg-col-22: $fg-grid-width * 22;
+$fg-col-23: $fg-grid-width * 23;
+$fg-col-24: $fg-grid-width * 24;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BREAKPOINTS
+//----------------------------------------------------------------------------------------------------------------------
+
+//--------
+// Grid breakpoints
+$fg-break-lg: $fg-col-24;                           // 1440px   Wide
+$fg-break-md: $fg-col-16;                           // 960px    Desktop
+$fg-break-sm: $fg-col-13;                           // 780px    Tablet
+$fg-break-xs: $fg-col-8;                            // 480px    Mobile
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// FONTS
+//----------------------------------------------------------------------------------------------------------------------
+
+//--------
+// Font family
+$font-regular: 'Open Sans';
+$font-light: 'Open Sans Light';
+$font-bold: 'Open Sans Semibold';
+
+//--------
+// Font weights
+$font-weight-light: 100;
+$font-weight-regular: 400;
+$font-weight-bold: 800;
+
+//--------
+// Base font
+$base-font-family: $font-regular;
+$base-font-weight: $font-weight-regular;
+$base-font-size: 16px;
+$base-line-height: 1.4;
+
+//--------
+// Fixed font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+$fixed-line-height: $base-line-height;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// DIMENSIONS
+//----------------------------------------------------------------------------------------------------------------------
+
+//--------
+// Stack order
+$z-index-0:   0;
+$z-index-1:   1;
+$z-index-2:   2;
+$z-index-3:   3;
+$z-index-4:   4;
+$z-index-5:   5;
+$z-index-6:   6;
+$z-index-7:   7;
+$z-index-8:   8;
+$z-index-9:   9;
+$z-index-10: 10;
+$z-below: -999999;
+$z-above: 999999;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// TRANSITIONS
+//----------------------------------------------------------------------------------------------------------------------
+
+//--------
+// Defaults
+$trans-speed: 0.2s;
+$trans-ease: linear;
+
+
+//----------------------------------------------------------------------------------------------------------------------
+// BASE COLORS
+//----------------------------------------------------------------------------------------------------------------------
+
+//--------
+// Base colors
+
+
+//--------
+// Link colors
+
+
+//--------
+// Text colors
+$main-text-color: #5D5E59;
+
+
+//--------
+// Element colors
+$default-border-color: rgba(219, 218, 218, 1);
+
+
