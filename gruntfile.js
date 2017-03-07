@@ -70,6 +70,22 @@ module.exports = function(grunt) {
       }
     },
 
+
+    /**
+     * Linting
+     */
+    jshint: {
+      files: {
+        src: [
+          'app/*.js',
+          'app/*.es6',
+          'app/src/*.js',
+          'app/src/**/*.js',
+          '!app/src/libs/vendor/**'
+        ]
+      }
+    },
+
     /**
      * Clean task
      */
@@ -84,7 +100,7 @@ module.exports = function(grunt) {
      */
     shell: {
       symlink: {
-        command: 'ln -s ../../../node_modules app/dist/libs/vendor'
+        command: 'ln -sf ../../../node_modules app/dist/libs/vendor'
       }
     },
 
@@ -115,6 +131,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: [
+          'app/*.js',
           'app/src/*.js',
           'app/src/*.es6',
           'app/src/libs/native/**/*.js',
@@ -124,7 +141,7 @@ module.exports = function(grunt) {
         options: {
           spawn: true
         },
-        tasks: ['babel', 'shell:symlink']
+        tasks: ['lint', 'babel', 'shell:symlink']
       },
       html: {
         files: [
@@ -152,7 +169,18 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('default', [
     'sass:dev',
+    'clean',
+    'babel',
+    'symlink',
+    'lint',
     'watch'
+  ]);
+
+  /**
+   * Lint task
+   */
+  grunt.registerTask('lint', [
+    'jshint'
   ]);
 
   /**

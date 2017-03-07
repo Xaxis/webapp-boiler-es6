@@ -14,7 +14,7 @@ define([
 
   var initialize = function() {
     var
-      app_router      = new AppRouter;
+      app_router      = new AppRouter();
 
     // Default route handler
     app_router.on('route:defaultAction', function(actions) {
@@ -29,5 +29,5 @@ define([
 
   return {
     initialize: initialize
-  }
+  };
 });

@@ -11,5 +11,5 @@ define([
     };
   };
 
-  return new Util;
+  return new Util();
 });
