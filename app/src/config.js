@@ -18,7 +18,7 @@
       text:                 'libs/vendor/requirejs-text/text',
       underscore:           'libs/vendor/underscore/underscore',
       backbone:             'libs/vendor/backbone/backbone',
-      // socketio:             '//localhost:9222/socket.io/socket.io',
+      socketio:             '//localhost:9222/socket.io/socket.io',
 
       // Native modules
       util:                 'libs/native/util/util',

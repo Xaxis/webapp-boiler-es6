@@ -123,6 +123,24 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Template/html minification
+     */
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'app/src',
+          src: ['**/*.html', '*.html', '!libs/vendor/**'],
+          dest: 'app/dist'
+        }]
+      }
+    },
+
+    /**
      * Watch task
      */
     watch: {
@@ -132,6 +150,7 @@ module.exports = function(grunt) {
       scripts: {
         files: [
           'app/*.js',
+          'app/*.es6',
           'app/src/*.js',
           'app/src/*.es6',
           'app/src/libs/native/**/*.js',
@@ -145,11 +164,14 @@ module.exports = function(grunt) {
       },
       html: {
         files: [
-          '**/*.html'
+          'app/src/**/*.html',
+          'app/src/*.html',
+          '!app/src/libs/vendor/**'
         ],
         options: {
-          spawn: false
-        }
+          spawn: true
+        },
+        tasks: ['htmlmin']
       },
       sass: {
         files: 'app/assets/sass/**/*.{scss,sass}',
@@ -171,6 +193,7 @@ module.exports = function(grunt) {
     'sass:dev',
     'clean',
     'babel',
+    'htmlmin',
     'symlink',
     'lint',
     'watch'
@@ -191,12 +214,20 @@ module.exports = function(grunt) {
   ]);
 
   /**
+   * Template minification task
+   */
+  grunt.registerTask('templates', [
+    'htmlmin'
+  ]);
+
+  /**
    * "Compile" task
    */
   grunt.registerTask('compile', [
     'sass:dev',
     'clean',
     'babel',
+    'htmlmin',
     'symlink'
   ]);
 };

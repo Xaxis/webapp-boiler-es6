@@ -7,7 +7,7 @@ define([
   'router',
   'socketio',
   'core/_module/views/_moduleView',
-  'es6!core/_module-es6/_module-es6'
+  'es6!libs/native/_module-es6/_module-es6'
 ], function(
   Devgrid,
   ModernizrTests,
@@ -24,6 +24,7 @@ define([
        */
       initialize: function() {
         var
+          _this             = this,
           devgrid           = new Devgrid(),
           modernizr_tests   = new ModernizrTests();
 
@@ -48,7 +49,7 @@ define([
         new _ModuleView();
 
         // ES6 module initialization
-        new _ModuleES6();
+        console.log(_ModuleES6);
       }
     };
   };
