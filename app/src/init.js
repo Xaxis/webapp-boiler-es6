@@ -26,7 +26,8 @@ define([
         var
           _this             = this,
           devgrid           = new Devgrid(),
-          modernizr_tests   = new ModernizrTests();
+          modernizr_tests   = new ModernizrTests(),
+          socket            = null;
 
         // Module initializations
         devgrid.initialize();
@@ -34,13 +35,13 @@ define([
         Router.initialize({pushState: true});
 
         // Build socket
-        this.socket = io.connect('//localhost:9222');
+        socket = io.connect('//localhost:9222');
 
         // Register
-        this.socket.emit('register', {ready: true});
+        socket.emit('register', {ready: true});
 
         // Receive registration
-        this.socket.on('ready', function( info ) {
+        socket.on('ready', function( info ) {
           _this.client_id = info.id;
           console.log('my client_id: ', _this.client_id);
         });

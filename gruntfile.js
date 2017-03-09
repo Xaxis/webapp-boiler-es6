@@ -1,24 +1,20 @@
 module.exports = function(grunt) {
+
+  /**
+   * Pass in grunt instance as first require
+   */
+  require('time-grunt')(grunt);
+
+
+  /**
+   * Begin grunt configuration
+   */
   grunt.initConfig ({
 
     /**
      * Import project information
      */
     pkg: grunt.file.readJSON('package.json'),
-
-    /**
-     * Project details
-     */
-    project: {
-      public: '/app/',
-      sass: '<%= project.public %>assets/sass',
-      css: [
-        '<%= project.public %>css/style.scss'
-      ],
-      js: [
-        '<%= project.public %>js/*.js'
-      ]
-    },
 
     /**
      * Set project banner
@@ -101,24 +97,9 @@ module.exports = function(grunt) {
     shell: {
       symlink: {
         command: 'ln -sf ../../../node_modules app/dist/libs/vendor'
-      }
-    },
-
-    /**
-     * Babel task
-     */
-    babel: {
-      options: {
-        sourceMap: false
       },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'app/src',
-          src: ['**/*.js', '**/*.es6', '!libs/vendor/**'],
-          dest: 'app/dist',
-          ext:'.js'
-        }]
+      babel: {
+        command: './node_modules/.bin/babel app/src --out-dir app/dist --ignore "app/src/libs/vendor"'
       }
     },
 
@@ -145,7 +126,7 @@ module.exports = function(grunt) {
      */
     watch: {
       options: {
-        livereload: true
+        livereload: false
       },
       scripts: {
         files: [
@@ -160,7 +141,7 @@ module.exports = function(grunt) {
         options: {
           spawn: true
         },
-        tasks: ['lint', 'babel', 'shell:symlink']
+        tasks: ['shell:babel']
       },
       html: {
         files: [
@@ -192,9 +173,9 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass:dev',
     'clean',
-    'babel',
+    'shell:babel',
     'htmlmin',
-    'symlink',
+    'shell:symlink',
     'lint',
     'watch'
   ]);
@@ -221,13 +202,20 @@ module.exports = function(grunt) {
   ]);
 
   /**
+   * Transpile task
+   */
+  grunt.registerTask('transpile', [
+    'shell:babel'
+  ]);
+
+  /**
    * "Compile" task
    */
   grunt.registerTask('compile', [
     'sass:dev',
     'clean',
-    'babel',
+    'shell:babel',
     'htmlmin',
-    'symlink'
+    'shell:symlink'
   ]);
 };

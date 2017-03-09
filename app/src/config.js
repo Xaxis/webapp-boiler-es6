@@ -39,4 +39,4 @@
     app.initialize();
   });
 
-})(window, require);
+})(window, require); 
