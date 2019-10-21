@@ -23,7 +23,7 @@
     "font-awesome": "^4.3.0",
     "jquery": "^2.1.4",
     "jquery.devgrid": "git+https://github.com/Xaxis/jquery.devgrid.git",
-    "lodash": "^3.10.0",
+    "lodash": "^4.17.15",
     "modernizr": "^3.0.0-alpha.4",
     "requirejs": "^2.1.19",
     "requirejs-babel": "0.0.9",
