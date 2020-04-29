@@ -21,7 +21,7 @@
     "backbone": "^1.2.1",
     "express": "^4.13.1",
     "font-awesome": "^4.3.0",
-    "jquery": "^2.1.4",
+    "jquery": "^3.5.0",
     "jquery.devgrid": "git+https://github.com/Xaxis/jquery.devgrid.git",
     "lodash": "^3.10.0",
     "modernizr": "^3.0.0-alpha.4",
